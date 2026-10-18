@@ -1,0 +1,4 @@
+.venv/
+__pycache__/
+saidas/
+.DS_Store

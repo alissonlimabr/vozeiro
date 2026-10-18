@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vozeiro</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Cole um texto e baixe a narração em MP3 com voz neural em português.">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script type="module" src="/static/js/main.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Vozeiro</h1>
+      <p class="subtitulo">Cole um texto e baixe a narração em MP3 com voz neural em português.</p>
+    </header>
+
+    <section class="cartao" aria-label="Nova narração">
+      <form id="formulario">
+        <div class="campo">
+          <label for="texto">Texto</label>
+          <textarea id="texto" required autofocus placeholder="Cole aqui o roteiro da narração"></textarea>
+          <p class="contador" id="contador" aria-live="polite"></p>
+        </div>
+
+        <div class="controles">
+          <div class="campo">
+            <label for="voz">Voz</label>
+            <select id="voz">
+              <option value="pt-BR-AntonioNeural" selected>Antonio (masculina)</option>
+            </select>
+          </div>
+          <div class="campo">
+            <div class="campo-cabecalho">
+              <label for="velocidade">Velocidade</label>
+              <output class="valor" id="velocidade-valor" for="velocidade">Normal</output>
+            </div>
+            <input id="velocidade" type="range" min="-50" max="100" step="5" value="0">
+          </div>
+        </div>
+
+        <div class="acoes">
+          <p id="status" role="status"></p>
+          <button class="primario" type="submit">Narrar</button>
+        </div>
+
+        <ul class="lista andamento" id="andamento" aria-label="Narrações em andamento" aria-live="polite" hidden></ul>
+
+        <div id="resultado" hidden>
+          <ul class="lista" aria-label="Última narração"></ul>
+        </div>
+      </form>
+    </section>
+
+    <section aria-labelledby="titulo-historico">
+      <div class="secao-cabecalho">
+        <h2 id="titulo-historico">Histórico</h2>
+        <div class="cabecalho-acoes">
+          <span class="valor" id="total"></span>
+        </div>
+      </div>
+      <div class="cartao historico">
+        <ul class="lista" id="historico"></ul>
+        <div class="rodape-lista" id="rodape-historico" hidden>
+          <button type="button" id="ver-mais">Ver mais</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
